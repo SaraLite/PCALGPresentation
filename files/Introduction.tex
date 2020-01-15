@@ -1,7 +1,7 @@
 \begin{frame}{Introduction}
 
-    \begin{itemize}    
-        \item There are many approaches to multiple sequence alignment:
+    \begin{itemize}
+        \item Multiple sequence alignment (MSA) $\rightarrow$ way of identifying and visualizing patterns of sequence conservation. It facilitates evolutionary and phylogenetic studies. There are many approaches to multiple sequence alignment:
         \begin{enumerate}
             \item Exact methods.
             \item Progressive alignment (e.g., ClustalW).
@@ -9,8 +9,16 @@
             \item Consistency-based methods (e.g., MAFFT, ProbCons).
             \item Structure-based methods: include information about one or more known 3D protein structures.
         \end{enumerate}
-        \item MUSCLE and MAFFT are faster $\rightarrow$ more useful for aligning large numbers of sequences. ProbCons and T-Coffee are slower $\rightarrow$ more accurate.
-        \item Regarding the pairwise alignments: in progressive alignments, their scores are generated and used to build a tree; in consistency-based methods, the information about the multiple sequence alignment is used as it is being generated to guide them.
     \end{itemize}
     
+\end{frame}
+
+\begin{frame}{Introduction: method's approaches}
+
+    \begin{itemize}
+        \item Dynamic programming $\rightarrow$ too inefficient for more than a few sequences. Instead, heuristic strategies: tree-based progressive alignment, sequences are assembled via several pairwise alignment steps. Errors at early stages propagate and may increase the likelihood of misalignment (alleviated by post-processing steps).
+        \item Consistency-based techniques $\rightarrow$ use evidence from intermediate sequences to guide the pairwise alignment (adjusting the score for a residue pairing according to support from the position of a third sequence that aligns to the others). That is, multiple sequence information is used, as it is being generated.
+        \item COFFEE (another consistency-based) $\rightarrow$ a library is computed by merging consistent CLUSTALW global and LALIGN local pairwise alignments to form three-way alignments, which are assigned weights. The score for the pairwise alignment is the sum of the weights of all alignments in the library containing that aligned residue pair.
+    \end{itemize}
+
 \end{frame}
