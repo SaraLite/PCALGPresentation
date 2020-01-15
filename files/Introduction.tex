@@ -9,28 +9,8 @@
             \item Consistency-based methods (e.g., MAFFT, ProbCons).
             \item Structure-based methods: include information about one or more known 3D protein structures.
         \end{enumerate}
-        \item MUSCLE and MAFFT are fastest and thus most useful for aligning large numbers of sequences. ProbCons and T-Coffee, although slower, are more accurate in many applications.
-        \item In progressive alignments, pairwise alignment scores are generated and used to build a tree. Consistency-based methods, as ProbCons, adopt a different approach: using information about the multiple sequence alignment as it is being generated to guide the pairwise alignments.
+        \item MUSCLE and MAFFT are faster $\rightarrow$ more useful for aligning large numbers of sequences. ProbCons and T-Coffee are slower $\rightarrow$ more accurate.
+        \item Regarding the pairwise alignments: in progressive alignments, their scores are generated and used to build a tree; in consistency-based methods, the information about the multiple sequence alignment is used as it is being generated to guide them.
     \end{itemize}
-    
-\end{frame}
-
-\begin{frame}{Introduction $\rightarrow$ Perform simulations}
-
-    \begin{itemize}
-        \item $oncoSimulIndiv$ and $oncoSimulPop$ functions.
-    \end{itemize}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/oncoSimulIndiv.png}
-            \end{figure}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/oncoSimulPop.png}
-            \end{figure}
-        \end{column}
-    \end{columns}
     
 \end{frame}
