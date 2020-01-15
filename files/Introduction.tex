@@ -1,43 +1,16 @@
-\begin{frame}{Introduction $\rightarrow$ 2 Frequency dependent fitness}
+\begin{frame}{Introduction}
 
     \begin{itemize}    
-        \item Game theory.
-        \item $OncoSimulR$ model $\rightarrow$ the fitness of a subpopulation will depend on the relative abundance of the different subpopulations.
-        \item The fitness of each subpopulation is defined as an arbitrary function of the genetic interactions between multiple genes.       
-    \end{itemize}
-    
-\end{frame}
-
-\begin{frame}{Introduction $\rightarrow$ Effects on fitness}
-
-    \begin{itemize}
-        \item $allFitnessEffects$ function:
-        \begin{itemize}
-            \item $genoFitness$ = dataframe
-            \begin{itemize}
-                \item First column: genotypes.
-                \item Second column: expressions for the functions that relate fitness to frequencies of other genotypes.
-            \end{itemize}
-            \item $frequencyDependentFitness$ = TRUE
-            \item $frequencyType$ = “rel” or $frequencyType$ = “abs”
-            \item $spPopSizes$
-        \end{itemize}        
-    \end{itemize}
-
-\end{frame}
-
-\begin{frame}{Introduction $\rightarrow$ Assess fitness}
-
-    \begin{itemize}
-        \item $evalGenotype$ function:
-        \begin{itemize}
-            \item $fitnessEffects$ = $allFitnessEffects$ object
-            \item $genotype$
-        \end{itemize}
-        \item $evalAllGenotypes$ function:
-        \begin{itemize}
-            \item $fitnessEffects$ = $allFitnessEffects$ object
-        \end{itemize}
+        \item There are many approaches to multiple sequence alignment:
+        \begin{enumerate}
+            \item Exact methods.
+            \item Progressive alignment (e.g., ClustalW).
+            \item Iterative approaches (e.g., PRALINE, IterAlign, MUSCLE).
+            \item Consistency-based methods (e.g., MAFFT, ProbCons).
+            \item Structure-based methods: include information about one or more known 3D protein structures.
+        \end{enumerate}
+        \item MUSCLE and MAFFT are fastest and thus most useful for aligning large numbers of sequences. ProbCons and T-Coffee, although slower, are more accurate in many applications.
+        \item In progressive alignments, pairwise alignment scores are generated and used to build a tree. Consistency-based methods, as ProbCons, adopt a different approach: using information about the multiple sequence alignment as it is being generated to guide the pairwise alignments.
     \end{itemize}
     
 \end{frame}
