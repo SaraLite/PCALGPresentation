@@ -1,14 +1,14 @@
 \begin{frame}{Algorithm overview}
     \begin{itemize}
-        \item \textbf{ProbCons\cite{do2005probcons}} is a pair-hidden Markov model-based progressive alignment algorithm that differs from most typical approaches in its use of \textbf{maximum expected accuracy} rather than Viterbi alignment, and of the probabilistic consistency transformation to incorporate multiple sequence conservation information during pairwise alignment. 
-        \item \textbf{Hidden Markov Models (HMMs)} in sequence analysis are based on a strong probabilistic model that \textbf{includes a representation of INDELs} (insertions and deletions, i.e. gaps). 
-        \item The HMM describing families of related sequences are called \textbf{profile HMMs}
+        \item \textbf{ProbCons \cite{do2005probcons}} is a pair-hidden Markov model-based progressive alignment algorithm that differs from most typical approaches in its use of \textbf{maximum expected accuracy} rather than Viterbi alignment, and of the probabilistic consistency transformation to incorporate multiple sequence conservation information during pairwise alignment. 
+        \item \textbf{Hidden Markov Models (HMMs)} in sequence analysis are based on a strong probabilistic model that \textbf{includes a representation of INDELs} (insertions and deletions, i.e. gaps) \cite{durbin1998biological}. 
+        \item The HMM describing families of related sequences are called \textbf{profile HMMs}.
     \end{itemize}
 \end{frame}
 
 \begin{frame}{Algorithm overview}
     \begin{itemize}
-        \item In profile HMMs the residues in each position of the alignment can be in one of three possible states:
+        \item In profile HMMs \cite{durbin1998biological} residues in each position of the alignment can be in one of three possible states:
         \begin{enumerate}
             \item \textbf{Match:} represent conserved position
             \item \textbf{Insert:} represent small stretches of nonspecific sequence
@@ -23,21 +23,20 @@
     
 \end{frame}
 
-\begin{frame}{Algorithm overview}
-\centering
- \includegraphics[width=0.35\linewidth]{img/hmm_states.PNG}
- \begin{itemize}
-     \item Emission probabilities, which correspond to traditional substitution scores, are based on the BLOSUM62 matrix.
-     \item Transition probabilities, which correspond to gap penalties, are trained with unsupervised Expectation-Maximization (EM)
-     \begin{itemize}
-         \item $\pi_{insert}$: initial insertion probability parameter
-         \item $\delta$: insertion start probability parameter
-         \item $\epsilon$: insertion extension probability parameter
-     \end{itemize}
-     \item The resulting parameters ($\delta$ = 0.019931, $\epsilon$ = 0.79433, $\pi_{insert}$= 0.19598) are used as the default for the program.
-
+\begin{frame}%{Algorithm overview}
+    \begin{figure}[t]
+        \includegraphics[width=0.35\linewidth]{img/hmm_states.PNG}
+    \end{figure}
+    \begin{itemize}
+        \item Emission probabilities, which correspond to traditional substitution scores, are based on the BLOSUM62 matrix.
+        \item Transition probabilities, which correspond to gap penalties, are trained with unsupervised Expectation-Maximization (EM)
+        \begin{itemize}
+            \item $\pi_{insert}$: initial insertion probability parameter
+            \item $\delta$: insertion start probability parameter
+            \item $\epsilon$: insertion extension probability parameter
+        \end{itemize}
+        \item The resulting parameters ($\delta$ = 0.019931, $\epsilon$ = 0.79433, $\pi_{insert}$= 0.19598) are used as default by the program.
  \end{itemize}
-    
 \end{frame}
 
 \begin{frame}
@@ -88,7 +87,7 @@
         \begin{align*}
             \pmb{E}_{a^*} (acc(a,a^*)|x,y) = \frac{1}{\min{\{|x|,|y|\}}} \sum_{x_i\sim y_j \in a} P_{xy}(i,j) \;,
         \end{align*}
-        where $a$ is the align*ment that maximizes the expected accuracy by dynamic programming.
+        where $a$ is the alignment that maximizes the expected accuracy by dynamic programming.
         \item Set 
         \begin{align}\label{eq:score}
             E(x,y) = \pmb{E}_{a^*} (acc(a,a^*)|x,y) \;.
@@ -127,7 +126,7 @@
             \item Sum-of-pairs.
             \item Gap penalties $\rightarrow$ $0$.
         \end{itemize}
-        \item Progressive alignment.
+        \item Progressive alignment \cite{wallace2005multiple}.
         \begin{itemize}
             \item Randomly partition alignment into two groups of sequences.
             \item Realign.

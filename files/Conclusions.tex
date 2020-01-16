@@ -2,10 +2,10 @@
 The ProbCons algorithm uses an extremely simple model of sequence similarity (a three-state pair-HMM):
     \begin{enumerate}
         \item Makes no attempt to incorporate biological knowledge (i.e position specific gap scoring or rigorous evolutionary tree construction).
-        \item Use amino acid alphabet and BLOSUM emission probability matrices as protein-specific alignment information
+        \item Use amino acid alphabet and BLOSUM emission probability matrices as protein-specific alignment information.
         \item Can be used to DNA alignment by changing the alphabet and the BLOSUM matrices with values for nucleotides.
-        \item The parameter used in the model are transparent ($\pi_{insert}$, $\delta$, $\epsilon$)
-        \item The training program as done automatically on unaligned sequences using Expectation-Maximization.
+        \item The parameter used in the model are transparent ($\pi_{insert}$, $\delta$, $\epsilon$).
+        \item The training program is done automatically on unaligned sequences using Expectation-Maximization.
         \item High accuracy: probabilistic consistency transformation and objective function. 
     \end{enumerate}
 \end{frame}
