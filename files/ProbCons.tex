@@ -1,3 +1,45 @@
+\begin{frame}{Algorithm overview}
+    \begin{itemize}
+        \item \textbf{ProbCons\cite{do2005probcons}} is a pair-hidden Markov model-based progressive alignment algorithm that differs from most typical approaches in its use of \textbf{maximum expected accuracy} rather than Viterbi alignment, and of the probabilistic consistency transformation to incorporate multiple sequence conservation information during pairwise alignment. 
+        \item \textbf{Hidden Markov Models (HMMs)} in sequence analysis are based on a strong probabilistic model that \textbf{includes a representation of INDELs} (insertions and deletions, i.e. gaps). 
+        \item The HMM describing families of related sequences are called \textbf{profile HMMs}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Algorithm overview}
+    \begin{itemize}
+        \item In profile HMMs the residues in each position of the alignment can be in one of three possible states:
+        \begin{enumerate}
+            \item \textbf{Match:} represent conserved position
+            \item \textbf{Insert:} represent small stretches of nonspecific sequence
+            \item \textbf{Delete:} correspond to gaps and represent the absence of a conserved residue
+        \end{enumerate}
+        \item Each state has associated:
+        \begin{enumerate}
+            \item \textbf{Emission probability:} correspond to the probability of observing each amino acid at that particular position of the alignment
+            \item \textbf{Transition probability:} describes the frequency of observing a match, insertion or deletion in column i+1 given the state column i. 
+        \end{enumerate}
+    \end{itemize}
+    
+\end{frame}
+
+\begin{frame}{Algorithm overview}
+\centering
+ \includegraphics[width=0.35\linewidth]{img/hmm_states.PNG}
+ \begin{itemize}
+     \item Emission probabilities, which correspond to traditional substitution scores, are based on the BLOSUM62 matrix.
+     \item Transition probabilities, which correspond to gap penalties, are trained with unsupervised Expectation-Maximization (EM)
+     \begin{itemize}
+         \item $\pi_{insert}$: initial insertion probability parameter
+         \item $\delta$: insertion start probability parameter
+         \item $\epsilon$: insertion extension probability parameter
+     \end{itemize}
+     \item The resulting parameters ($\delta$ = 0.019931, $\epsilon$ = 0.79433, $\pi_{insert}$= 0.19598) are used as the default for the program.
+
+ \end{itemize}
+    
+\end{frame}
+
 \begin{frame}
     \frametitle{Algorithm overview}
 
