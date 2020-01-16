@@ -1,230 +1,96 @@
-\subsection{List of experiments}
+\begin{frame}
+    \frametitle{Algorithm overview}
 
-\begin{frame}{List of experiments}
-	\begin{enumerate}
-		\item <alert@2> Rock-paper-scissors model in bacterial community
-		\item Evolutionary games theory: Hawk and Dove example
-		\item The Lotka-Volterra model of competition between two competing species
-		\item Game Theory with social dilemmas of tumour acidity and vasculature
-		\item Prostate cancer tumour–stroma interactions
-		\item <alert@2> Evolutionary Dynamics of Tumor-Stroma Interactions in Multiple Myeloma
-	\end{enumerate}
-\end{frame}
-
-\subsection{An experiment with bacteria}
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-
-    \begin{itemize}
-        \item \textbf{Title:} Local dispersal promotes biodiversity in a real-life game of rock–paper–scissors.
-        \item \textbf{Authors:} Benjamin Kerr, Margaret A. Riley, Marcus W. Feldman, Brendan J. M. Bohannan.
-        \item Three competing species of bacterias with relationships similar to rock-paper-scissors game.
-    \end{itemize}
-            \begin{figure}[t]
-    			\includegraphics[scale=0.7]{img/paper_bacteria.jpg}
-    		\end{figure}
-\end{frame}
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-    \begin{itemize}
-		\item Three types of populations of \textit{E. coli}: 
-		\begin{itemize}
-			\item Wild-type bacterias (WT): colicin-sensitive bacterias (killed by colicin). 
-			\item Colicinogenic bacterias (C): produce colicin toxin and are resistant to it.
-			\item Colicin-resistant bacterias (R): WT bacterias resistant to colicin.
-		\end{itemize}
-		\item Parameters that describe the relationships of WT-C-R community:
-		\begin{itemize}
-			\item $a$: advantage of WT over R $\Rightarrow$ R consume a lot of energy, WT have not this problem.
-			\item $b$: advantage of C over WT $\Rightarrow$ C are able to kill WT.
-			\item $c$: advantage of R over C $\Rightarrow$ R are resistant to colicin produced by C. 
-		\end{itemize}
-		
-    \end{itemize}
-\end{frame}
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{center}
-				In summary, we have the relationships of rock-paper-scissors game:
-			\end{center}
-			\begin{figure}
-				\includegraphics[scale=0.12]{img/figure_rock-scissor-paper.jpg}			
-			\end{figure}
-		\end{column}
-		\begin{column}{0.5\textwidth}
-			\begin{center}
-				And the resulting equations:
-			\begin{align*}
-				W\left(WT\right) = 1 + af_R - bf_C\\
-				W\left(C\right) = 1 + bf_{WT} - cf_R\\
-				W\left(R\right) = 1 + cf_C - af_{WT}\\
-			\end{align*}
-			where $f_{WT}$, $f_C$ and $f_R$ are the frequencies of WT, C and R, respectively. 
-			\end{center}
-		\end{column}
-	\end{columns}
-	\pause
-	\begin{center}
-		{\LARGE $\Downarrow$\\}
-		%% Meter alert %%
-		\begin{block}
-			{\centering
-<<<<<<< HEAD
-				Simulations 
-=======
-				Simulations
->>>>>>> 69670d7ba615fee5d0c09611326fc2936108c963
-			}
-		\end{block}
-	\end{center}	
-\end{frame}
-
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-Case 1: a = b = c = 1
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso1_1.png}			
-			\end{figure}
-		\end{column}
-
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso1_2.png}			
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-Case 2: a = 10,  b = c = 1
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso2_1.png}			
-			\end{figure}
-		\end{column}
-
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso2_2.png}			
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\begin{frame}{Rock-paper-scissors game in bacterial community}
-Case 2: a = 10,  b = c = 1
-	\begin{columns}
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso2_1.png}			
-			\end{figure}
-		\end{column}
-
-		\begin{column}{0.5\textwidth}
-			\begin{figure}
-				\includegraphics[scale=0.35]{img/CRS_caso2_3.png}			
-			\end{figure}
-		\end{column}
-	\end{columns}
-\end{frame}
-
-\subsection{An experiment with cells}
-
-\begin{frame}{Tumour-Stroma Interactions}
-
-    \begin{itemize}
-        \item \textbf{Title:} Evolutionary Dynamics of Tumor-Stroma Interactions in Multiple Myeloma.
-        \item \textbf{Authors:} Javad Salimi Sartakhti, Mohammad Hossein Manshaei, Soroosh Bateni, Marco Archetti.
-        \item Cancer cells and stromal cells cooperate by exchanging diffusible factors.
+    \begin{block}{ProbCons \cite{do2005probcons}}
         \begin{itemize}
-            \item Frequency-dependent selection that can be studied in the framework of evolutionary game theory.
+            \item Given $m$ sequences $\rightarrow$ $S = \{s^{(1)}, \ldots, s^{(m)} \}$.
+            \item Maximum expected accuracy.
+            \item Probabilistic consistency $\rightarrow$ MSA conservation information in the pairwise alignment.
         \end{itemize}
-    \end{itemize}
+    \end{block}
     
+    \begin{enumerate}
+        \item Step 1: Computation of posterior probability matrices.
+        \item Step 2: Computation of expected accuracies.
+        \item Step 3: Probabilistic consistency transformation.
+        \item Step 4: Computation of the guide tree.
+        \item Step 5: Progressive alignment.
+        \item Step 6: Iterative refinement (post-processing OPTIONAL step).
+    \end{enumerate}
 \end{frame}
 
-\begin{frame}{Tumour-Stroma Interactions: payoff functions}
+\begin{frame}
+    \frametitle{Step 1: Computation of posterior probability matrices}
     \begin{itemize}
-        \item There are $n$ phenotypes in a population denoted by $\{ P_1, \ldots, P_n \}$.
-        \item Each phenotype can produce one diffusible factor $\{ G_1, \ldots, G_n \}$.
-        \item Each diffusible factor $j$ has a different effect $r_{i,j}$ on the other phenotypes $i$.
-        \item The cost for $P_i$ for growth factor $G_i$ is denoted as $c_i$.
-        \item $M$ is the number of cells within the diffusion range.
-        \begin{itemize}
-            \item There are $M_j$ individuals of type $P_j$ among the other group members.
-        \end{itemize}
-        \item The payoff for strategy $P_j$ is:
+        \item For $x, y \in S$, compute the matrix
         \begin{align*}
-            \pi_{P_j}(M_1,\ldots,M_n)=\frac{(M_j+1)\times c_j}{M}r_{j,j} + \sum_{i=1, i \neq j}^n \frac{M_i \times c_i}{M}r_{j,i} - c_j \;.
+            P_{xy}(i,j) = \pmb{P}(x_i \sim y_j \in a^* | x, y) \;,
         \end{align*}
+        where $1\leq i\leq|x|$ and $1\leq j\leq |y|$.
+        \item Each position $P_{xy}(i,j)$ is the \textbf{posterior} probability that letters $x_i$ and $y_j$ are paired i an alignment $a^*$.
+        \begin{itemize}
+            \item Computing posterior probabilities in pair-HMMs \cite{durbin1998biological}.
+        \end{itemize}
+        \item Time complexity $O(m^2 L^2)$.
+        \begin{itemize}
+            \item $m$ is the number of sequences.
+            \item $L$ is the length of each sequence.
+        \end{itemize}
     \end{itemize}
 \end{frame}
 
-\begin{frame}{Tumour-Stroma Interactions: dynamics}
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-             \begin{itemize}
-                \item Malignant plasma cells.
-                \item Osteoblasts.
-                \item Osteoclasts.
-                \item Growth factors:
-                \begin{itemize}
-                    \item Autocrine effects.
-                    \item Paracrine effects. 
-                \end{itemize}
-            \end{itemize}
-        \end{column}
-        \begin{column}{0.6 \textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/tumour_stroma_interactions.png}
-            \end{figure}
-        \end{column}
-    \end{columns}
+\begin{frame}
+    \frametitle{Step 2: Computation of expected accuracies}
+    \begin{itemize}
+        \item The expected accuracy is defined as
+        \begin{align*}
+            \pmb{E}_{a^*} (acc(a,a^*)|x,y) = \frac{1}{\min{\{|x|,|y|\}}} \sum_{x_i\sim y_j \in a} P_{xy}(i,j) \;,
+        \end{align*}
+        where $a$ is the align*ment that maximizes the expected accuracy by dynamic programming.
+        \item Set 
+        \begin{align}\label{eq:score}
+            E(x,y) = \pmb{E}_{a^*} (acc(a,a^*)|x,y) \;.
+        \end{align}
+    \end{itemize}
 \end{frame}
 
-
-
-\begin{frame}{Tumour-Stroma Interactions: Scenario 1}
+\begin{frame}
+    \frametitle{Step 3: Probabilistic consistency transformation}
     \begin{itemize}
-        \item $c_1<c_2<c_3$ (a common occurrence in multiple myeloma).
-        \item In the presence of a small number of MM cells, the stable point on the OB-OC border becomes a saddle point and clonal selection leads to a stable coexistence of OC and MM cells.
+        \item Reestimate quality scores $\pmb{P}_{xy}$ $\rightarrow$ probabilistic consistency transformation.
+        \item Incorporate similarity of $x$ and $y$ to other sequences in $S$:
+        \begin{align*}
+            {\pmb{P}}'(x_i \sim y_j \in a^* | x, y) = \frac{1}{|S|} \sum_{z\in S} \sum_{z_k \in z} F(x_i, y_j, z_k) \;,
+        \end{align*}
+        where $F(x_i, y_j, z_k) =  {\pmb{P}}(x_i \sim z_k \in a^* | x, z) \times {\pmb{P}}(z_k \sim y_j \in a^* | z, y) $.
+        \item In matrix form:
+        \begin{align*}
+            {P'}_{xy} = \frac{1}{|S|} \sum_{z\in S} P_{xz}P_{zy} \;.
+        \end{align*}
+        \item \textbf{Optimization: }use sparse matrices ignoring entries $\leq \omega$ (threshold).
+        \item This step can be iterated until convergence.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Steps 4, 5 and 6}
+    \begin{itemize}
+        \item Hierarchical clustering.
+        \begin{itemize}
+          \item Similarity measure $E(x,y)$ as defined in Equation \eqref{eq:score}.
+          \item WPGMA method.
+        \end{itemize}
+        \item Align sequence groups hierarquically.
+        \begin{itemize}
+            \item Sum-of-pairs.
+            \item Gap penalties $\rightarrow$ $0$.
+        \end{itemize}
+        \item Progressive alignment.
+        \begin{itemize}
+            \item Randomly partition alignment into two groups of sequences.
+            \item Realign.
+            \item This step can be iterated.
+        \end{itemize}
     \end{itemize}
     
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/Scenario1.png}
-            \end{figure}
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/scenario1_tr.jpg}
-            \end{figure}
-        \end{column}
-    \end{columns}
-\end{frame}
-
-\begin{frame}{Tumour-Stroma Interactions: Scenario 2}
-    \begin{itemize}
-        \item $c_1=c_2=c_3$.
-        \item The game has one polymorphic stable point between OB and OC. In this case, clonal selection leads to the regular OC-OB balance and prevents invasion of MM cells.
-    \end{itemize}
-    
-    \begin{columns}
-        \begin{column}{0.4\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/Scenario2.png}
-            \end{figure}
-        \end{column}
-        \begin{column}{0.6\textwidth}
-            \begin{figure}[t]
-                \includegraphics[width=0.9\linewidth]{img/scenario2_tr.jpg}
-            \end{figure}
-        \end{column}
-    \end{columns}
 \end{frame}
