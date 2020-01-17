@@ -83,7 +83,8 @@
 \begin{frame}
     \frametitle{Step 2: Computation of expected accuracies}
     \begin{itemize}
-        \item The expected accuracy is defined as
+        \item ProbCons uses expected accuracies instead of expected probabilities.
+        \item The expected accuracy is defined as the number of correctly aligned pairs of residues divided by the length of the shorter sequence. Formally:
         \begin{align*}
             \pmb{E}_{a^*} (acc(a,a^*)|x,y) = \frac{1}{\min{\{|x|,|y|\}}} \sum_{x_i\sim y_j \in a} P_{xy}(i,j) \;,
         \end{align*}
@@ -93,6 +94,21 @@
             E(x,y) = \pmb{E}_{a^*} (acc(a,a^*)|x,y) \;.
         \end{align}
     \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Step 3: Probabilistic consistency transformation}
+    \begin{itemize}
+		\item Until now, posterior probabilities are used as match/mismatch scores in a Needleman-Wunch-like alignment procedure.
+		\item Probabilistic consistency transformation allows obtaining more accurate substitution scores when a third homologous sequence $z$ is available.
+		\item Instead of using a triple-HMM ($O(L^3)$) $\rightarrow$ heuristic approach is used ($O(L^2)$).
+	\end{itemize}
+	\begin{figure}[t]
+	\raggedleft
+		\includegraphics[scale=0.385]{img/time-complexity3.png}
+	\raggedright
+		\includegraphics[scale=0.385]{img/time-complexity2.png}
+	\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -108,7 +124,7 @@
         \begin{align*}
             {P'}_{xy} = \frac{1}{|S|} \sum_{z\in S} P_{xz}P_{zy} \;.
         \end{align*}
-        \item \textbf{Optimization: }use sparse matrices ignoring entries $\leq \omega$ (threshold).
+        \item \textbf{Optimization: }use sparse matrices ignoring entries $\leq \omega$ (threshold, 0.01 by default).
         \item This step can be iterated until convergence.
     \end{itemize}
 \end{frame}
@@ -116,22 +132,21 @@
 \begin{frame}
     \frametitle{Steps 4, 5 and 6}
     \begin{itemize}
-        \item Hierarchical clustering.
+        \item \textbf{Step 4: Guide tree computation} $\rightarrow$ Hierarchical clustering.
         \begin{itemize}
           \item Similarity measure $E(x,y)$ as defined in Equation \eqref{eq:score}.
-          \item WPGMA method.
+          \item WPGMA method (similar to UPGMA).
         \end{itemize}
-        \item Align sequence groups hierarquically.
+        \item \textbf{Step 5: Progressive alignment} $\rightarrow$ Align sequence groups hierarquically.
         \begin{itemize}
             \item Sum-of-pairs.
             \item Gap penalties $\rightarrow$ $0$.
         \end{itemize}
-        \item Progressive alignment \cite{wallace2005multiple}.
+        \item \textbf{Step 6: Post-processing} $\rightarrow$ Iterative refinement \cite{wallace2005multiple}.
         \begin{itemize}
             \item Randomly partition alignment into two groups of sequences.
             \item Realign.
             \item This step can be iterated.
         \end{itemize}
     \end{itemize}
-    
 \end{frame}
